@@ -201,13 +201,19 @@ function Calculator() {
           <button
             className="border p-5"
             onClick={() => {
-              if (temporary2 === "") {
-                if (!temporary1.includes(".")) {
-                  setDisplay((prev) => prev + ".");
-                }
-              } else {
-                if (!temporary2.includes(".")) {
-                  setDisplay((prev) => prev + ".");
+              if (
+                !["+", "-", "*", "/"].includes(
+                  display.substring(display.length - 1)
+                )
+              ) {
+                if (temporary2 === "") {
+                  if (!temporary1.includes(".")) {
+                    setDisplay((prev) => prev + ".");
+                  }
+                } else {
+                  if (!temporary2.includes(".")) {
+                    setDisplay((prev) => prev + ".");
+                  }
                 }
               }
               // console.log(temporary1.includes(a.target.value));
